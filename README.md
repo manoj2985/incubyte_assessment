@@ -1,5 +1,7 @@
 # Roadline Car Dealership Inventory
 
+> **Live Deployment (Vercel)**: [https://roadline-dealership-manojg2985-3603.vercel.app](https://roadline-dealership-manojg2985-3603.vercel.app)
+
 Roadline is a full-stack dealership inventory application. Customers can register, sign in, search the current stock, and purchase an available vehicle. Administrators can add vehicles, update listings, restock inventory, and remove listings.
 
 The backend protects inventory routes with JWT authentication and stores application data in MySQL. Stock purchases use an atomic database update so two requests cannot purchase the same last vehicle.
