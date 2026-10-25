@@ -102,7 +102,9 @@ TEST_REPORT.md          Latest test results
 
 The frontend runs at `http://localhost:5173` and the API runs at `http://localhost:4000`.
 
-Use the `ADMIN_EMAIL` and `ADMIN_PASSWORD` values from `server/.env` to open the administrator view. New registrations receive the customer role.
+### Evaluator Credentials
+- **Admin**: `admin@roadline.local` / `ChangeMe123!`
+- **Customer**: Register any email on the sign-in page (automatically receives customer access).
 
 ## Optional Docker database
 
@@ -149,6 +151,12 @@ Except for authentication and health checks, routes require `Authorization: Bear
 Search parameters are `make`, `model`, `category`, `minPrice`, and `maxPrice`.
 
 ## Testing
+
+The automated test suite runs out-of-the-box with zero database setup required (repositories are mocked in tests):
+
+```bash
+npm test
+```
 
 The backend tests cover authentication, validation, protected routes, role permissions, filtering, purchasing, and restocking. The frontend tests cover API error handling, login, registration errors, dashboard loading, purchasing, administrator controls, vehicle forms, and out-of-stock behavior.
 
