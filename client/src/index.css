@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply m-0 min-w-80 bg-cream font-sans text-ink antialiased;
+    @apply m-0 min-w-80 bg-[#f4f4f4] font-sans text-[#161616] antialiased;
   }
 
   button,
@@ -18,19 +18,19 @@
 
 @layer components {
   .field {
-    @apply w-full rounded-lg border border-stone-300 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-rust focus:ring-2 focus:ring-rust/15;
+    @apply w-full border-0 border-b border-[#8d8d8d] bg-[#f4f4f4] px-4 py-3 text-sm outline-none transition placeholder:text-[#6f6f6f] focus:border-[#0f62fe] focus:ring-2 focus:ring-inset focus:ring-[#0f62fe];
   }
 
   .label {
-    @apply mb-1.5 block text-sm font-medium text-stone-700;
+    @apply mb-2 block text-xs font-normal text-[#525252];
   }
 
   .button-primary {
-    @apply inline-flex items-center justify-center rounded-lg bg-rust px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#973c23] disabled:cursor-not-allowed disabled:bg-stone-300;
+    @apply inline-flex min-h-12 items-center justify-between gap-8 bg-[#0f62fe] px-4 py-3 text-sm font-normal text-white transition hover:bg-[#0353e9] focus:outline-none focus:ring-2 focus:ring-[#0f62fe] focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-[#c6c6c6] disabled:text-[#8d8d8d];
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:border-stone-400 hover:bg-stone-50;
+    @apply inline-flex min-h-10 items-center justify-center border border-[#0f62fe] bg-transparent px-4 py-2 text-sm font-normal text-[#0f62fe] transition hover:bg-[#e8f1ff] focus:outline-none focus:ring-2 focus:ring-[#0f62fe];
   }
 }
 

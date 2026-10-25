@@ -5,10 +5,10 @@ const money = new Intl.NumberFormat('en-US', {
 });
 
 const categoryColors = {
-  Sedan: 'bg-sky-100 text-sky-800',
-  SUV: 'bg-emerald-100 text-emerald-800',
-  Truck: 'bg-amber-100 text-amber-800',
-  Electric: 'bg-violet-100 text-violet-800',
+  Sedan: 'bg-[#d0e2ff] text-[#0043ce]',
+  SUV: 'bg-[#a7f0ba] text-[#0e6027]',
+  Truck: 'bg-[#fddc69] text-[#684e00]',
+  Electric: 'bg-[#e8daff] text-[#6929c4]',
 };
 
 export function VehicleCard({
@@ -24,46 +24,49 @@ export function VehicleCard({
   const badge = categoryColors[vehicle.category] || 'bg-stone-100 text-stone-700';
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-card">
-      <div className="relative flex h-36 items-end bg-gradient-to-br from-slate-800 via-slate-700 to-sage p-5">
-        <span className={`rounded-full px-3 py-1 text-xs font-semibold ${badge}`}>{vehicle.category}</span>
-        <div className="absolute right-5 top-5 text-4xl font-semibold text-white/15" aria-hidden="true">
-          {vehicle.make.slice(0, 1)}
+    <article className="group flex min-h-[320px] flex-col border-b border-r border-[#c6c6c6] bg-white shadow-card transition hover:bg-[#f8f8f8]">
+      <div className="relative flex h-28 items-end overflow-hidden bg-gradient-to-br from-[#001d6c] via-[#0043ce] to-[#0f62fe] p-4">
+        <div className="absolute inset-0 opacity-30" aria-hidden="true">
+          <div className="absolute -right-10 -top-16 h-40 w-40 rotate-45 border-[24px] border-white/20" />
+          <div className="absolute bottom-0 left-1/3 h-24 w-px rotate-[28deg] bg-white/50" />
         </div>
+        <span className={`relative px-2 py-1 text-xs font-medium ${badge}`}>{vehicle.category}</span>
+        <div className="absolute right-4 top-3 text-3xl font-light text-white/40" aria-hidden="true">{vehicle.make.slice(0, 1)}</div>
       </div>
 
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-4">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">{vehicle.make}</p>
-            <h2 className="mt-1 font-display text-2xl font-semibold">{vehicle.make} {vehicle.model}</h2>
+            <p className="text-xs uppercase tracking-[0.12em] text-[#6f6f6f]">{vehicle.make}</p>
+            <h2 className="mt-1 text-xl font-normal">{vehicle.make} {vehicle.model}</h2>
           </div>
-          <p className="text-lg font-bold">{money.format(vehicle.price)}</p>
+          <p className="text-lg font-medium">{money.format(vehicle.price)}</p>
         </div>
 
-        <div className="my-5 flex items-center justify-between border-y border-stone-100 py-3 text-sm">
-          <span className={soldOut ? 'font-medium text-rust' : 'text-stone-600'}>
+        <div className="my-4 flex items-center justify-between border-t border-[#e0e0e0] pt-3 text-sm">
+          <span className={soldOut ? 'text-[#da1e28]' : 'text-[#525252]'}>
             {soldOut ? 'Currently unavailable' : `${vehicle.quantity} available`}
           </span>
-          <span className="text-stone-400">Stock #{vehicle.id.slice(0, 6).toUpperCase()}</span>
+          <span className="text-[#8d8d8d]">Stock #{vehicle.id.slice(0, 6).toUpperCase()}</span>
         </div>
 
         {isAdmin ? (
-          <div className="grid grid-cols-3 gap-2">
-            <button className="button-secondary !px-2" onClick={() => onEdit(vehicle)}>Edit</button>
-            <button className="button-secondary !px-2" onClick={() => onRestock(vehicle)}>Restock</button>
-            <button className="rounded-lg px-2 py-2.5 text-sm font-semibold text-rust hover:bg-red-50" onClick={() => onDelete(vehicle)}>
+          <div className="mt-auto grid grid-cols-3 border-t border-[#e0e0e0] pt-3">
+            <button className="px-2 py-2 text-left text-sm text-[#0f62fe] hover:bg-[#e8f1ff]" onClick={() => onEdit(vehicle)}>Edit</button>
+            <button className="px-2 py-2 text-left text-sm text-[#0f62fe] hover:bg-[#e8f1ff]" onClick={() => onRestock(vehicle)}>Restock</button>
+            <button className="px-2 py-2 text-left text-sm text-[#da1e28] hover:bg-[#fff1f1]" onClick={() => onDelete(vehicle)}>
               Delete
             </button>
           </div>
         ) : (
           <button
-            className="button-primary w-full"
+            className="button-primary mt-auto w-full"
             disabled={soldOut || purchasing}
             onClick={() => onPurchase(vehicle.id)}
             aria-label={soldOut ? 'Out of stock' : `Purchase ${vehicle.make} ${vehicle.model}`}
           >
-            {soldOut ? 'Out of stock' : purchasing ? 'Processing...' : 'Purchase vehicle'}
+            <span>{soldOut ? 'Out of stock' : purchasing ? 'Processing...' : 'Purchase vehicle'}</span>
+            {!soldOut && <span aria-hidden="true">→</span>}
           </button>
         )}
       </div>

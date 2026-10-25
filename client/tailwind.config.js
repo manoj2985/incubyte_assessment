@@ -4,17 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#17202a',
-        cream: '#f5f2ea',
-        rust: '#b64a2b',
-        sage: '#4b6655',
+        ink: '#161616',
+        cream: '#f4f4f4',
+        rust: '#0f62fe',
+        sage: '#0043ce',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Georgia', 'Cambria', 'serif'],
+        sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        card: '0 12px 35px rgba(23, 32, 42, 0.08)',
+        card: '0 1px 0 rgba(0, 0, 0, 0.12)',
       },
     },
   },

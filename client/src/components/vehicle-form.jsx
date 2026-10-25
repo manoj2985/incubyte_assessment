@@ -19,16 +19,17 @@ export function VehicleForm({ vehicle, onSave, onCancel, saving }) {
   }
 
   return (
-    <div className="fixed inset-0 z-20 flex items-center justify-center bg-ink/60 p-4" role="dialog" aria-modal="true" aria-labelledby="vehicle-form-title">
-      <form className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl" onSubmit={submit}>
-        <div className="mb-6">
-          <h2 id="vehicle-form-title" className="font-display text-2xl font-semibold">
+    <div className="fixed inset-0 z-30 flex items-center justify-center bg-[#161616]/70 p-4" role="dialog" aria-modal="true" aria-labelledby="vehicle-form-title">
+      <form className="w-full max-w-lg bg-white shadow-2xl" onSubmit={submit}>
+        <div className="border-b border-[#e0e0e0] p-6">
+          <p className="mb-2 text-xs text-[#525252]">Inventory record</p>
+          <h2 id="vehicle-form-title" className="text-2xl font-light">
             {vehicle ? 'Update vehicle' : 'Add a vehicle'}
           </h2>
-          <p className="mt-1 text-sm text-stone-500">Keep the details consistent with the showroom listing.</p>
+          <p className="mt-2 text-sm text-[#525252]">Keep the details consistent with the showroom listing.</p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-5 p-6 sm:grid-cols-2">
           <label><span className="label">Make</span><input className="field" name="make" value={form.make} onChange={update} required /></label>
           <label><span className="label">Model</span><input className="field" name="model" value={form.model} onChange={update} required /></label>
           <label>
@@ -41,9 +42,9 @@ export function VehicleForm({ vehicle, onSave, onCancel, saving }) {
           <label><span className="label">Quantity</span><input className="field" type="number" min="0" name="quantity" value={form.quantity} onChange={update} required /></label>
         </div>
 
-        <div className="mt-7 flex justify-end gap-3">
-          <button type="button" className="button-secondary" onClick={onCancel}>Cancel</button>
-          <button className="button-primary" disabled={saving}>{saving ? 'Saving...' : 'Save vehicle'}</button>
+        <div className="grid grid-cols-2 border-t border-[#e0e0e0]">
+          <button type="button" className="min-h-12 bg-[#393939] px-4 text-left text-sm text-white hover:bg-[#4c4c4c]" onClick={onCancel}>Cancel</button>
+          <button className="button-primary" disabled={saving}><span>{saving ? 'Saving...' : 'Save vehicle'}</span><span aria-hidden="true">→</span></button>
         </div>
       </form>
     </div>
