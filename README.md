@@ -75,6 +75,13 @@ TEST_REPORT.md          Latest test results
 
 3. Copy the environment templates.
 
+   **macOS / Linux / Git Bash:**
+   ```bash
+   cp server/.env.example server/.env
+   cp client/.env.example client/.env
+   ```
+
+   **Windows PowerShell:**
    ```powershell
    Copy-Item server/.env.example server/.env
    Copy-Item client/.env.example client/.env
