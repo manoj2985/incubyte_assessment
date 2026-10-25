@@ -171,11 +171,19 @@ See [`TEST_REPORT.md`](TEST_REPORT.md) for the latest recorded results.
 
 ## My AI Usage
 
-I used OpenAI Codex while building this project. I used it to discuss the stack, create initial test cases, implement parts of the Express and React structure, investigate a local database connection issue, and review the setup instructions. I ran the tests and builds after each implementation stage and kept the Red-Green commits visible in the repository history.
+### Tools Used
+- **OpenAI Codex / AI Coding Assistant**: Used as an interactive pair programmer throughout the project lifecycle.
 
-AI was useful for moving quickly between backend, frontend, and test setup. The main risk was accepting more structure than the application needed, so I kept the service and repository layers small, removed unnecessary presentation elements, and used direct code where an additional abstraction did not improve clarity.
+### How AI Was Used
+- **Architecture & Concurrency Design**: Brainstormed project structure and designed the atomic SQL conditional decrement strategy (`quantity > 0`) to prevent race conditions during concurrent vehicle purchases.
+- **Test-Driven Development (Red Phase)**: Drafted initial failing test suites for Jest unit tests (`auth.service.test.js`, `vehicle.service.test.js`), Supertest REST API integration tests (`api.test.js`), and Vitest component tests (`vehicle-card.test.jsx`, `vehicle-form.test.jsx`).
+- **Implementation (Green Phase)**: Generated minimal service boilerplate, Express routing/middleware, and React Tailwind components to satisfy the failing test suites.
+- **Docker & Environment Configuration**: Configured the isolated MySQL 8.4 Docker service on port `3307` to eliminate port collision with existing local database instances.
 
-The unedited prompts and direct conversation replies from this work session are recorded in [`PROMPTS.md`](PROMPTS.md).
+### Reflection on Workflow Impact
+AI significantly accelerated the TDD feedback loop by rapidly generating comprehensive test assertions and domain boilerplate. The primary discipline required was preventing over-abstraction: I actively guided the AI to keep repository layers lightweight, reject unnecessary third-party UI libraries, and ensure every commit followed a strict Red-Green-Refactor cadence with co-author attribution.
+
+The complete, unedited conversation and prompt log is recorded in [`PROMPTS.md`](PROMPTS.md).
 
 ## Deployment notes
 
