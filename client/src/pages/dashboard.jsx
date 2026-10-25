@@ -109,7 +109,7 @@ export function Dashboard() {
     <div className="min-h-screen bg-[#f4f4f4]">
       <header className="fixed inset-x-0 top-0 z-20 flex h-12 items-center bg-[#161616] text-white">
         <div className="flex h-full w-64 items-center border-r border-[#393939] px-4">
-          <span className="text-sm font-semibold">AutoVault</span>
+          <span className="text-sm font-semibold">Roadline</span>
           <span className="ml-1 text-sm font-light text-[#c6c6c6]">Dealer Cloud</span>
         </div>
         <div className="hidden h-8 max-w-xl flex-1 items-center border-b border-[#6f6f6f] bg-[#262626] px-3 text-sm text-[#c6c6c6] md:flex">
@@ -137,7 +137,7 @@ export function Dashboard() {
         <section className="border-b border-[#c6c6c6] bg-white px-5 py-8 lg:px-8">
           <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div>
-              <p className="text-xs text-[#525252]">AutoVault / Inventory</p>
+              <p className="text-xs text-[#525252]">Roadline / Inventory</p>
               <h1 className="mt-3 text-3xl font-light">{isAdmin ? 'Manage inventory' : 'Available vehicles'}</h1>
               <p className="mt-2 text-sm text-[#525252]">Monitor live dealership stock and vehicle availability.</p>
             </div>

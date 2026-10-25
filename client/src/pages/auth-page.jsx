@@ -32,7 +32,7 @@ export function AuthPage() {
   return (
     <main className="min-h-screen bg-[#f4f4f4] pt-12">
       <header className="fixed inset-x-0 top-0 z-10 flex h-12 items-center bg-[#161616] px-4 text-white">
-        <span className="text-sm font-semibold">AutoVault</span>
+        <span className="text-sm font-semibold">Roadline</span>
         <span className="ml-1 text-sm font-light text-[#c6c6c6]">Dealer Cloud</span>
         <span className="ml-auto text-xs text-[#a8a8a8]">Inventory management</span>
       </header>
@@ -44,7 +44,7 @@ export function AuthPage() {
             <div className="absolute bottom-16 left-1/3 h-72 w-px rotate-[32deg] bg-white/50" />
             <div className="absolute bottom-0 right-12 h-52 w-52 border-b-[40px] border-r-[40px] border-[#4589ff]/40" />
           </div>
-          <p className="relative text-sm font-light text-[#a6c8ff]">AUTOVAULT / INVENTORY</p>
+          <p className="relative text-sm font-light text-[#a6c8ff]">ROADLINE / INVENTORY</p>
           <div className="relative max-w-xl">
             <p className="mb-5 text-sm text-[#78a9ff]">Dealership operations</p>
             <h1 className="text-5xl font-light leading-tight">Inventory control built for a faster showroom.</h1>
@@ -59,7 +59,7 @@ export function AuthPage() {
 
         <section className="flex items-center justify-center bg-white px-6 py-12">
           <div className="w-full max-w-md">
-            <p className="text-sm text-[#525252]">Welcome to AutoVault</p>
+            <p className="text-sm text-[#525252]">Welcome to Roadline</p>
             <h2 className="mt-3 text-4xl font-light">{mode === 'login' ? 'Sign in to browse' : 'Create your account'}</h2>
             <p className="mt-3 text-sm text-[#525252]">{mode === 'login' ? 'Use your account to see current inventory.' : 'Register to browse and purchase available vehicles.'}</p>
 
@@ -72,7 +72,7 @@ export function AuthPage() {
             </form>
 
             <p className="mt-6 text-sm text-[#525252]">
-              {mode === 'login' ? 'New to AutoVault?' : 'Already have an account?'}{' '}
+              {mode === 'login' ? 'New to Roadline?' : 'Already have an account?'}{' '}
               <button className="text-[#0f62fe] hover:underline" onClick={() => { setMode(mode === 'login' ? 'register' : 'login'); setError(''); }}>
                 {mode === 'login' ? 'Register' : 'Sign in'}
               </button>

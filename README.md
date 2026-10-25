@@ -1,6 +1,6 @@
-# AutoVault Car Dealership Inventory
+# Roadline Car Dealership Inventory
 
-AutoVault is a full-stack dealership inventory application. Customers can register, sign in, search the current stock, and purchase an available vehicle. Administrators can add vehicles, update listings, restock inventory, and remove listings.
+Roadline is a full-stack dealership inventory application. Customers can register, sign in, search the current stock, and purchase an available vehicle. Administrators can add vehicles, update listings, restock inventory, and remove listings.
 
 The backend protects inventory routes with JWT authentication and stores application data in MySQL. Stock purchases use an atomic database update so two requests cannot purchase the same last vehicle.
 
@@ -8,11 +8,11 @@ The backend protects inventory routes with JWT authentication and stores applica
 
 ### Sign in
 
-![AutoVault sign-in page](docs/screenshots/login.png)
+![Roadline sign-in page](docs/screenshots/login.png)
 
 ### Administrator inventory
 
-![AutoVault administrator inventory](docs/screenshots/inventory.png)
+![Roadline administrator inventory](docs/screenshots/inventory.png)
 
 ## Technology
 
