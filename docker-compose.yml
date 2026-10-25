@@ -2,14 +2,14 @@ services:
   mysql:
     image: mysql:8.4
     environment:
-      MYSQL_DATABASE: dealership
+      MYSQL_DATABASE: incubyte_car_deal
       MYSQL_USER: dealership
-      MYSQL_PASSWORD: dealership
-      MYSQL_ROOT_PASSWORD: local-root-password
+      MYSQL_PASSWORD: incubyte
+      MYSQL_ROOT_PASSWORD: incubyte-root
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
-      - dealership-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD --silent"]
       interval: 5s
@@ -17,5 +17,5 @@ services:
       retries: 10
 
 volumes:
-  dealership-data:
+  mysql-data:
 
