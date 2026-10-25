@@ -1,16 +1,17 @@
 services:
-  postgres:
-    image: postgres:17-alpine
+  mysql:
+    image: mysql:8.4
     environment:
-      POSTGRES_USER: dealership
-      POSTGRES_PASSWORD: dealership
-      POSTGRES_DB: dealership
+      MYSQL_DATABASE: dealership
+      MYSQL_USER: dealership
+      MYSQL_PASSWORD: dealership
+      MYSQL_ROOT_PASSWORD: local-root-password
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - dealership-data:/var/lib/postgresql/data
+      - dealership-data:/var/lib/mysql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U dealership -d dealership"]
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD --silent"]
       interval: 5s
       timeout: 5s
       retries: 10

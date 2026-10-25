@@ -11,9 +11,9 @@ class VehicleRepository {
 
   async findAll(filters) {
     const where = {};
-    if (filters.make) where.make = { contains: filters.make, mode: 'insensitive' };
-    if (filters.model) where.model = { contains: filters.model, mode: 'insensitive' };
-    if (filters.category) where.category = { equals: filters.category, mode: 'insensitive' };
+    if (filters.make) where.make = { contains: filters.make };
+    if (filters.model) where.model = { contains: filters.model };
+    if (filters.category) where.category = { equals: filters.category };
     if (filters.minPrice !== undefined || filters.maxPrice !== undefined) {
       where.price = {};
       if (filters.minPrice !== undefined) where.price.gte = filters.minPrice;
